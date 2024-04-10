@@ -11,6 +11,8 @@ export class CreateCustomerUseCase {
       email: input.email
     });
 
-    this.customersRepository.create(customer);
+    await this.customersRepository.create(customer);
+
+    return customer;
   }
 }
