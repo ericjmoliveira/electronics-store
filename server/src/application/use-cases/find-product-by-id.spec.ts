@@ -10,7 +10,6 @@ describe('Find Product By ID Use Case', () => {
       inMemoryProductsRepository
     );
     const products = await getProductsByCategoryUseCase.execute('Computers');
-    console.log(products);
     const findProductByIdUseCase = new FindProductByIdUseCase(inMemoryProductsRepository);
     const output = await findProductByIdUseCase.execute(products[0].id);
 
