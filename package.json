@@ -11,7 +11,17 @@
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "test": "vitest"
+    "lint": "eslint  --fix",
+    "format": "prettier --write",
+    "test": "vitest run",
+    "test:watch": "vitest watch",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "src/*.ts": [
+      "pnpm lint",
+      "pnpm format"
+    ]
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
@@ -30,6 +40,8 @@
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "prettier": "^3.0.0",
     "source-map-support": "^0.5.21",
     "ts-loader": "^9.4.3",
