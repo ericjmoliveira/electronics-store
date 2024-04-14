@@ -11,4 +11,17 @@ export class InMemoryListsRepository implements ListsRepository {
   getListLength() {
     return this.items.length;
   }
+
+  async updateName(id: string, name: string): Promise<List> {
+    const list = this.items.find((list) => list.id === id);
+    const updatedList = { ...list, name };
+
+    this.items.map((list) => {
+      if (list.id === updatedList.id) list = updatedList;
+
+      return list;
+    });
+
+    return updatedList;
+  }
 }
